@@ -1,0 +1,269 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Documentação endpoints Hotel California",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/": {
+            "post": {
+                "tags": [
+                    "customer"
+                ],
+                "summary": "Store",
+                "description": "Create a new customer at the local database and asaas database integration",
+                "operationId": "f18b63685844032ea496dc66c7a6c1d2",
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "application/json"
+                        }
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "application/json"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    },
+                                    "cpfCnpj": {
+                                        "type": "string",
+                                        "example": "42.173.898/0001-40"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "john.doe@example.com"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "1234567890"
+                                    },
+                                    "mobilePhone": {
+                                        "type": "string",
+                                        "example": "0987654321"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "123 Main St"
+                                    },
+                                    "addressNumber": {
+                                        "type": "string",
+                                        "example": "456"
+                                    },
+                                    "complement": {
+                                        "type": "string",
+                                        "example": "Apt 789"
+                                    },
+                                    "province": {
+                                        "type": "string",
+                                        "example": "Lorem ipsum"
+                                    },
+                                    "postalCode": {
+                                        "type": "string",
+                                        "example": "12345-678"
+                                    },
+                                    "notificationDisabled": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "additionalEmails": {
+                                        "type": "string",
+                                        "example": "jane.doe@example.com,jack.doe@example.com"
+                                    },
+                                    "municipalInscription": {
+                                        "type": "string",
+                                        "example": "123456789"
+                                    },
+                                    "stateInscription": {
+                                        "type": "string",
+                                        "example": "987654321"
+                                    },
+                                    "observations": {
+                                        "type": "string",
+                                        "example": "Nenhuma observação"
+                                    },
+                                    "groupName": {
+                                        "type": "string",
+                                        "example": "Clientes VIP"
+                                    },
+                                    "company": {
+                                        "type": "string",
+                                        "example": "Example Company"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "nome": {
+                                                    "type": "string",
+                                                    "example": "John Doe"
+                                                },
+                                                "cpfCnpj": {
+                                                    "type": "string",
+                                                    "example": "68.324.482/0001-79"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "john.doe@example.com"
+                                                },
+                                                "telefone": {
+                                                    "type": "string",
+                                                    "example": "1234567890"
+                                                },
+                                                "celular": {
+                                                    "type": "string",
+                                                    "example": "0987654321"
+                                                },
+                                                "endereco": {
+                                                    "type": "string",
+                                                    "example": "123 Main St"
+                                                },
+                                                "numero": {
+                                                    "type": "string",
+                                                    "example": "456"
+                                                },
+                                                "complemento": {
+                                                    "type": "string",
+                                                    "example": "Apt 789"
+                                                },
+                                                "bairro": {
+                                                    "type": "string",
+                                                    "example": "Lorem ipsum"
+                                                },
+                                                "cep": {
+                                                    "type": "string",
+                                                    "example": "12345-678"
+                                                },
+                                                "notificacaoDesativada": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "emailsAdicionais": {
+                                                    "type": "string",
+                                                    "example": "jane.doe@example.com,jack.doe@example.com"
+                                                },
+                                                "inscricaoMunicipal": {
+                                                    "type": "string",
+                                                    "example": "123456789"
+                                                },
+                                                "inscricaoEstadual": {
+                                                    "type": "string",
+                                                    "example": "987654321"
+                                                },
+                                                "observacoes": {
+                                                    "type": "string",
+                                                    "example": "Nenhuma observação"
+                                                },
+                                                "nomeGrupo": {
+                                                    "type": "string",
+                                                    "example": "Clientes VIP"
+                                                },
+                                                "empresa": {
+                                                    "type": "string",
+                                                    "example": "Example Company"
+                                                },
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "6559e3fe-f49e-4a67-91bd-a5e95b386ae9"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "O cpf cnpj informado já foi cadastrado na nossa base e não pode ser duplicado (and 1 more error)"
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "cpfCnpj": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "O cpf cnpj informado já foi cadastrado na nossa base e não pode ser duplicado"
+                                                    }
+                                                },
+                                                "email": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "O campo email é obrigatório."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "passport": {
+                "type": "oauth2",
+                "description": "Laravel passport oauth2 security.",
+                "in": "header",
+                "scheme": "https",
+                "flows": {
+                    "password": {
+                        "authorizationUrl": "http://localhost/oauth/authorize",
+                        "tokenUrl": "http://localhost/oauth/token",
+                        "refreshUrl": "http://localhost/token/refresh",
+                        "scopes": []
+                    }
+                }
+            },
+            "sanctum": {
+                "type": "apiKey",
+                "description": "Enter token in format (Bearer <token>)",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    }
+}
