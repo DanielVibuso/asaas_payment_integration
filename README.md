@@ -1,66 +1,67 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# PerfectV
+*Documentação após a imagem inicial
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![image](https://github.com/DanielVibuso/PaymentPerfect/assets/55055330/6dd56deb-bfbd-43e1-a760-4054337c23c7)
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Este pequeno projeto simula um sistema de hotelaria com pagamento integrado.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+O foco do projeto ficou voltado mais à integração com o asaas do que com qualquer outra coisa. Caso queira ir direto neste ponto, está em "app/Gateways"
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Utilizei as seguintes tecnologias:<br>
+PHP 8.2 <br>
+Laravel 10 <br>
+Mysql 5.7 <br>
+docker <br>
+docker-compose <br>
 
-## Learning Laravel
+## Sobre o projeto
+Devido a pouco recurso de tempo disponível, fiz o projeto em forma de monolito, porém separando bem as rotas da api que contem as regras de negócio das rotas web que serviram apenas para exibição do frontend.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Dessa forma é possível, mesmo utilizando arquitetura monolitica servir diferentes dispositivos, o que seria útil em caso de necessidade de acessar os dados via aplicativo mobile.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Utilizei o padrão repository-pattern pela simplicidade, alguns recursos do laravel para injeção de dependencia, jobs para não travar o cadastro do usuário aguardando resposta da api do asaas e algumas outras coisas menores.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## gateway de integração
+Separei todas as entradas e saídas da api do Asaas em DTOs específicos na pasta gateways, para que os dados de request e response possam ser bem definidos e caso seja do desejo dos desenvolvedores no futuro trocar os nomes dos models essa tarefa ficará bem mais fácil.
 
-## Laravel Sponsors
+## Input e output 
+para a exibição do front do proprio projeto utilizei os resources do laravel e para introdução de dados os form requests.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## dependencias externas
+utilizei as dependencias: darkaonline/l5-swagger para documentação, devido ao pouco tempo adicionei apenas um endpoint para exemplificar.
+também adicionei a dependencia milon/barcode para que fosse possível gerar código de barras diretamente nos arquivos blade. <br>
+para acessar a documentacao: localhost/api/documentation
 
-### Premium Partners
+# Como executar o projeto
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Após clonar o projeto, torne o arquivo .env.example em .env e coloca uma chave válida na variavel de ambiente ASAAS_API_KEY .
 
-## Contributing
+Para executar o projeto no modo interativo, siga as instruções abaixo:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. Certifique-se de ter o Docker e o docker compose instalado em sua máquina.
+2. Navegue até a raiz do projeto no terminal.
+3. Execute o seguinte comando:
 
-## Code of Conduct
+ - docker-compose up -d
+ - docker-compose exec app composer install
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+feito isso, abra o navegador e navegue para a url localhost/plans
 
-## Security Vulnerabilities
+uma tela com três planos será exibida. 
+Clique em qualquer um deles e um modal se abrirá.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Pode deve cadastrar o usuário no formulário do lado esquerdo da tela. Devido a quantidade de dados, já deixei preenchido com valores ficticios.
 
-## License
+Após criar o usuário, efetue a escolha entre pix, boleto e cartão. Um novo formulário se abrirá e solicitará os dados pertinentes ao meio de pagamento.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+O campo "PRODUTO" aceita apenas os valores BASICO, PREMIUM e PRESIDENCIAL.
+
+os campos relacionados a cartão de crédito também já estão preenchidos para adiantar o teste manual.
+
+### debitos técnicos
+Caso tivessemos mais tempo, optaria por adicionar autenticação de usuários com tokens JWT, os testes ao menos de integração com phpunit e talvez modularizar mais utilizando clean arch e separando por casos de uso. 
+Espero que gostem!
+
+
+
