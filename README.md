@@ -16,7 +16,7 @@ docker <br>
 docker-compose <br>
 
 ## Sobre o projeto
-Devido a pouco recurso de tempo disponível, fiz o projeto em forma de monolito, porém separando bem as rotas da api que contem as regras de negócio das rotas web que serviram apenas para exibição do frontend.
+Projeto em forma de monolito, porém separando bem as rotas da api que contem as regras de negócio das rotas web que serviram apenas para exibição do frontend.
 
 Dessa forma é possível, mesmo utilizando arquitetura monolitica servir diferentes dispositivos, o que seria útil em caso de necessidade de acessar os dados via aplicativo mobile.
 
@@ -29,7 +29,7 @@ Separei todas as entradas e saídas da api do Asaas em DTOs específicos na past
 para a exibição do front do proprio projeto utilizei os resources do laravel e para introdução de dados os form requests.
 
 ## dependencias externas
-utilizei as dependencias: darkaonline/l5-swagger para documentação, devido ao pouco tempo adicionei apenas um endpoint para exemplificar.
+dependencias: darkaonline/l5-swagger para documentação, adicionei apenas um endpoint para exemplificar.
 também adicionei a dependencia milon/barcode para que fosse possível gerar código de barras diretamente nos arquivos blade. <br>
 para acessar a documentacao: localhost/api/documentation
 
@@ -60,8 +60,7 @@ O campo "PRODUTO" aceita apenas os valores BASICO, PREMIUM e PRESIDENCIAL.
 os campos relacionados a cartão de crédito também já estão preenchidos para adiantar o teste manual.
 
 ### debitos técnicos
-Caso tivessemos mais tempo, optaria por adicionar autenticação de usuários com tokens JWT, os testes ao menos de integração com phpunit e talvez modularizar mais utilizando clean arch e separando por casos de uso. 
-Espero que gostem!
+adicionar autenticação de usuários com tokens JWT, os testes ao menos de integração com phpunit e talvez modularizar mais utilizando clean arch e separando por casos de uso. 
 
 
 
